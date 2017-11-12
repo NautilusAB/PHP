@@ -1,0 +1,32 @@
+body{
+	width: 100%;
+}	
+td,a{
+	margin:0;
+}
+a{
+	height:100%;
+}
+p,tr{
+	font-size:20px;
+}
+p,a{
+	text-align:left;
+}
+form{
+	width: 20%;
+	height: 20%;
+	margin: 20px auto;
+}
+input{
+	margin: 5px;
+	margin: 0 auto;
+}
+.padding-l{
+	padding-left:200px;
+	margin:0;
+}
+
+
+
+
