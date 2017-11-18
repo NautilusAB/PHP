@@ -3,7 +3,6 @@
 	$y = 1;
 	$c = 0;
 	$r = $_GET['numb'];		
-	$bool = 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +13,7 @@
 	<body>
 		<?php
 			echo 'Ваше число = ' . $r . "<br/>";
-			while($bool == 0 || $x != $r){
+			while($x != $r){
 				if ($x > $r){
 				echo 'Задуманное число НЕ входит в числовой ряд.';
 				break;
