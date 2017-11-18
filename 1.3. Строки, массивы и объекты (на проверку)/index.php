@@ -4,8 +4,7 @@
 	
 	$pos= 0;
 	$i = 0;
-	$finishWord = array();
-	$firstWord = array();
+	$arr = array();
 	$secondWord = array();
 	$allWord = array();
 	$continents = array(
@@ -21,48 +20,24 @@
 	foreach($continents as $n => $w){
 	  foreach($continents[$n] as $n2 => $w2){
 	    if(strpos($w2, ' ')){
-				$allWord[] = explode(' ', $w2);
-			}
-	  }
-	}
-	
-	// Затем названия разделил на 2 массива. На 1-ую и 2-ую часть названия.
-	
-	foreach($allWord as $k => $n){
-	  foreach($allWord[$k] as $k2 => $n2){
-	    if ($k2 != 0){
-				$secondWord[] = $n2;
-			}
-			else{
-				$firstWord[] = $n2;
+				$arr = explode(' ', $w2);
+				$allWord[$n][] = $arr[0];
+				$secondWord[] = $arr[1];
 			}
 		}
 	}
-	
+		
 	// Перемешал все значения в массивах.
 	
 	shuffle($secondWord);
 	
-	// Соединение 1-ой и 2-ой части названий
+	// Добавляем 2 часть названия в массив.
 	
-	for($i = 0; count($firstWord) > $i; $i++){
-		$a = $firstWord[$i];
-		$b = $secondWord[$i];
-		$a .= " " . $b;
-		$finishWord[] = $a;
-	}
-	
-	// Заполнение массива
-	
-	foreach($continents as $k => $n){
-		foreach($continents[$k] as $k2 => $n2){
-			foreach($finishWord as $k3 => $n3){
-				$pos = stristr($n2 , ' ', true);
-				$pos2 = stristr($n3 , ' ', true);
-				if($pos == $pos2){
-					$unrealAnimals[$k][] = $n3;
-				}
-			}
+	foreach($allWord as $k => $n){
+		foreach($allWord[$k] as $k2 => $n2){
+			$n2 .= ' ' . $secondWord[$i];
+			$unrealAnimals[$k][] = $n2; 
+			$i++;
 		}
 	}
 ?>
