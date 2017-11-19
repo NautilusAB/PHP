@@ -35,9 +35,8 @@
 	
 	foreach($allWord as $k => $n){
 		foreach($allWord[$k] as $k2 => $n2){
-			$n2 .= ' ' . $secondWord[$i];
-			$unrealAnimals[$k][] = $n2; 
-			$i++;
+			$n2 .= ' ' . next($secondWord);
+			$unrealAnimals[$k][] = $n2;
 		}
 	}
 ?>
