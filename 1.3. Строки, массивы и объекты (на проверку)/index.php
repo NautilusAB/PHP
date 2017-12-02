@@ -35,7 +35,8 @@
 	
 	foreach($allWord as $k => $n){
 		foreach($allWord[$k] as $k2 => $n2){
-			$n2 .= ' ' . next($secondWord);
+			$n2 .= ' ' . current($secondWord);
+			next($secondWord);
 			$unrealAnimals[$k][] = $n2;
 		}
 	}
@@ -82,6 +83,7 @@
 					}
 				}
 			}		
+			echo('<br />');
 		?>
 	</body>
 </html>
