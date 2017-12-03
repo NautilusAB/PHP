@@ -1,16 +1,7 @@
 <?php
-	$decode;
-	$json = array(
-	'firstName' => 'Артур',
-	'lastName' => 'Бровин',
-	'address' => 'г. Алматы, 10-а мкр',
-	'phoneNumber' => '84527624652');
-	json_encode($json);		
-	
-	function print_d($a){
-	echo ('<pre> ' . var_dump($a) . '</pre>');
-	}
-	
+	$url = "text.json";
+	$content = file_get_contents($url);
+	$json = json_decode($content, true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,16 +11,16 @@
 </head>
 	<body>
 		<table>
-			<?php foreach($json as $n => $k){ ?>
+			<?php 
+				foreach ($json as $n => $k){ 
+					foreach ($json[$n] as $n2 => $k2){
+			?>
 				<tr>
 					<td>
-						<?php 
-								if (count($json))
-								echo ('"' . $n . '": "' . $k . '" ');
-						?>
-					<td>
+						<?php echo ($n2 . ': ' . $k2); ?>
+					</td>
 				</tr>
-			<?php } ?>	
+				<?php }} ?>	
 		</table>
 	</body>
 </html>
